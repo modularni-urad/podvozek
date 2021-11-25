@@ -14,4 +14,6 @@ function configCallback (req, callback) {
   callback(null, { origin })
 }
 
-export const corsMW = cors(configCallback)
+export const corsMW = process.env.NODE_ENV === 'test'
+  ? (req, res, next) => next()  // just forward for tests
+  : cors(configCallback)

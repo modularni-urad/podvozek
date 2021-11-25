@@ -11,8 +11,8 @@ import apis from './apis'
 import configman from './configman'
 import { corsMW } from './corsman'
 
-export default async function init (mocks = null) {
-  const knex = mocks ? await mocks.dbinit() : await initDB()
+export default async function init () {
+  const knex = await initDB()
   attachPaginate()
 
   const app = express()
@@ -21,7 +21,7 @@ export default async function init (mocks = null) {
     express, knex, auth, bodyParser: express.json()
   }
   const apiRouter = await apis.init(ctx)
-  app.use('/:tenantid/', configman.loadOrgConfig, corsMW, apiRouter)
+  app.use('/:tenantid', configman.loadOrgConfig, corsMW, apiRouter)
 
   initErrorHandlers(app) // ERROR HANDLING
 

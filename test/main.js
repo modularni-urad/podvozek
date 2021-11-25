@@ -1,0 +1,49 @@
+import chai from 'chai'
+import _ from 'underscore'
+import testmodules from './testmodules'
+// import { getFolderSuites } from 'modularni-urad-utils/test/utils/suite'
+import { APIS_DIR, getAppFolders } from '../apis'
+const chaiHttp = require('chai-http')
+const path = require('path')
+chai.use(chaiHttp)
+
+const g = { chai }
+require('./env/init')(g)
+
+// async function prepare () {
+//   // nedari se mi seznam suits generovat asynchrone :/ mocha to nezere
+//   const apps = await getAppFolders()
+//   const suites = {}
+//   await Promise.all(apps.map(async i => {
+//     const suitsFolder = path.join(APIS_DIR, i, 'test/suites')
+//     const appsuites = await getFolderSuites(suitsFolder)
+//     return suites[i] = appsuites
+//   }))
+//   return suites
+// }
+
+describe('app', () => {
+  
+  before(() => {
+    const InitModule = require('../index')
+    return g.InitApp(InitModule.default)
+  })
+  after(g.close)
+
+  describe('all APIs', async () => {
+    // it('shall load all suites', async () => {
+    //   const suites = await prepare()
+    //   suites.map(i => i(g))
+    // })
+    // const testmodules = await prepare()
+    _.map(testmodules, (modulelist, apppath) => {
+      modulelist.map(mod => {
+        const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
+        const subMod = require(modPath)
+        g.baseurl = `${g.url}/pokus_cz/${apppath}`
+        subMod(g)
+      })      
+    })
+  })
+
+})

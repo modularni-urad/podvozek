@@ -3,7 +3,7 @@ import assert from 'assert'
 import _ from  'underscore'
 import apis from './apis'
 
-let instance = null
+export let instance = null
 
 export function initDB () {
   assert.ok(process.env.DATABASE_URL, 'env.DATABASE_URL not defined!')
