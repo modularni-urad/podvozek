@@ -1,0 +1,42 @@
+{
+  "name": "modularni-urad-povozek",
+  "version": "1.0.0",
+  "description": "podvozek pro api applikace soustredene do jedne node instance",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r esm server.js",
+    "startdbg": "node -r esm --inspect server.js",
+    "test": "mocha -r esm --exit './test/main.js' --timeout 5000",
+    "testdbg": "mocha -r esm --inspect './test/main.js' --timeout 5000"
+  },
+  "author": "Vaclav Klecanda <vencax77@gmail.com> (http://vxk.cz)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "chokidar": "^3.5.2",
+    "cors": "^2.8.5",
+    "debug": "^4.3.2",
+    "esm": "^3.2.25",
+    "express": "^4.16.2",
+    "knex": "^0.95.0",
+    "knex-paginate": "^3",
+    "modularni-urad-utils": "modularni-urad/utils",
+    "pg": "^8.7.1",
+    "underscore": "^1.13.1",
+    "yaml": "^1.10.2"
+  },
+  "devDependencies": {
+    "moment": "^2.29.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "deepcopy": "^2.0.0",
+    "expect": "^1.20.2",
+    "jsdom": "^9.8.0",
+    "mocha": "^8.2.0",
+    "sqlite3": "^4.0.4",
+    "temp": "^0.9.4"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}
