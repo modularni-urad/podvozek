@@ -39,9 +39,14 @@ describe('app', () => {
     _.map(testmodules, (modulelist, apppath) => {
       modulelist.map(mod => {
         const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
-        const subMod = require(modPath)
-        g.baseurl = `${g.url}/pokus_cz/${apppath}`
-        subMod(g)
+        try {
+          const subMod = require(modPath)
+          g.baseurl = `${g.url}/pokus_cz/${apppath}`
+          subMod(g)
+        } catch (err) {
+          console.error(`!!!!! require(${modPath}) failed!!!!!!`)
+          console.error(err)
+        }        
       })      
     })
   })

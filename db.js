@@ -20,7 +20,7 @@ export function migrateDB(configs) {
   const schemas = _.map(configs, (v, k) => {
     return v.orgid
   })
-  _.map(apis.apimodules, apiMod => {
-    apiMod.migrateDB(instance, schemas)
-  })
+  return Promise.all(_.map(apis.apimodules, apiMod => {
+    return apiMod.migrateDB(instance, schemas)
+  }))
 }

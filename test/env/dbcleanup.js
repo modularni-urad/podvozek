@@ -21,7 +21,7 @@ export default async function cleanupDB() {
       return instance.raw(`drop schema "${s.schema_name}" CASCADE;`)
     }))
     await removePublicTables()
-    console.log('DB clean --------------------')
+    console.log('DB cleaned successfully --------------------')
   } catch (err) {
     console.error(err)
   }  

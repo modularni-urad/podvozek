@@ -15,9 +15,17 @@ module.exports = function (g) {
     sessionBasket: []
   })
   g.sessionSrvcMock = SessionServiceMock.default(process.env.SESSION_SERVICE_PORT, g)
-
+  g.require = function(name) {
+    try {
+      return require(name)
+    } catch (err) {
+      console.error(err)
+    }    
+  }
+  
   g.InitApp = async function (initFn) {
     const app = await initFn()
+    // await cleanupDB()
     return new Promise((resolve, reject) => {
       g.server = app.listen(g.port, '127.0.0.1', (err) => {
         if (err) return reject(err)

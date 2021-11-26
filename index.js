@@ -1,14 +1,11 @@
 import express from 'express'
 import _ from 'underscore'
 import { attachPaginate } from 'knex-paginate'
-import {
-  auth,
-  initErrorHandlers,
-  initConfigManager
-} from 'modularni-urad-utils'
+import { initErrorHandlers, APIError } from 'modularni-urad-utils'
+import auth from 'modularni-urad-utils/auth'
 import { initDB } from './db'
 import apis from './apis'
-import configman from './configman'
+import { initConfigManager, loadOrgConfigMW } from './configman'
 import { corsMW } from './corsman'
 
 export default async function init () {
@@ -18,13 +15,13 @@ export default async function init () {
   const app = express()
 
   const ctx = {
-    express, knex, auth, bodyParser: express.json()
+    express, knex, auth, bodyParser: express.json(), ErrorClass: APIError
   }
   const apiRouter = await apis.init(ctx)
-  app.use('/:tenantid', configman.loadOrgConfig, corsMW, apiRouter)
+  app.use('/:tenantid', loadOrgConfigMW, corsMW, apiRouter)
 
   initErrorHandlers(app) // ERROR HANDLING
 
-  await initConfigManager(process.env.CONFIG_FOLDER, configman.onChanged)
+  await initConfigManager(process.env.CONFIG_FOLDER)
   return app
 }
