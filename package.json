@@ -20,7 +20,7 @@
     "express": "^4.16.2",
     "knex": "^0.95.0",
     "knex-paginate": "^3",
-    "modularni-urad-utils": "modularni-urad/utils",
+    "modularni-urad-utils": "^1.5",
     "pg": "^8.7.1",
     "underscore": "^1.13.1",
     "yaml": "^1.10.2"
