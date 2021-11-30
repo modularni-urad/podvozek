@@ -3,5 +3,8 @@ export default {
     '1_tasks',
     '2_comments',
     '3_solvers'
+  ],
+  projekty: [
+    'projects'
   ]
 }

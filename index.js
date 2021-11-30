@@ -15,7 +15,10 @@ export default async function init () {
   const app = express()
 
   const ctx = {
-    express, knex, auth, bodyParser: express.json(), ErrorClass: APIError
+    express, knex, auth, 
+    bodyParser: express.json(), 
+    ErrorClass: APIError,
+    require
   }
   const apiRouter = await apis.init(ctx)
   app.use('/:tenantid', loadOrgConfigMW, corsMW, apiRouter)

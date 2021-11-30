@@ -41,8 +41,11 @@ describe('app', () => {
         const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
         try {
           const subMod = require(modPath)
-          g.baseurl = `${g.url}/pokus_cz/${apppath}`
-          subMod(g)
+          const tenants = ['mutabor', 'pokus_cz']
+          tenants.map(tenant => {
+            g.baseurl = `${g.url}/${tenant}/${apppath}`
+            subMod(g)
+          })
         } catch (err) {
           console.error(`!!!!! require(${modPath}) failed!!!!!!`)
           console.error(err)
