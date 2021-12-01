@@ -11,7 +11,10 @@ export function initDB () {
   instance = knex({
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    debug: process.env.NODE_ENV !== 'production'
+    debug: process.env.NODE_ENV !== 'production',
+    migrations: {
+      disableMigrationsListValidation: true
+    }
   })
   return instance
 }
@@ -20,7 +23,7 @@ export function migrateDB(configs) {
   const schemas = _.map(configs, (v, k) => {
     return v.orgid
   })
-  return Promise.all(_.map(apis.apimodules, apiMod => {
-    return apiMod.migrateDB(instance, schemas)
-  }))
+  return apis.apimodules.reduce((p, apiMod) => {
+    return p.then(() => apiMod.migrateDB(instance, schemas))
+  }, Promise.resolve())
 }
