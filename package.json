@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r esm server.js",
     "startdbg": "node -r esm --inspect server.js",
-    "test": "mocha -r esm --exit './test/main.js' --timeout 5000",
+    "test": "mocha -r esm --exit './test/main.js' --timeout 50000",
     "testdbg": "mocha -r esm --inspect './test/main.js' --timeout 5000"
   },
   "author": "Vaclav Klecanda <vencax77@gmail.com> (http://vxk.cz)",

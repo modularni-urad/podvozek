@@ -6,5 +6,7 @@ export default {
   ],
   projekty: [
     'projects'
-  ]
+  ],
+  userman: [ 'users' ],
+  groupman: [ 'groups', 'mships' ]
 }
