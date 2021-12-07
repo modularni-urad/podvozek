@@ -6,6 +6,7 @@ import { APIS_DIR, getAppFolders } from '../apis'
 const chaiHttp = require('chai-http')
 const path = require('path')
 chai.use(chaiHttp)
+chai.should()
 
 const g = { chai }
 require('./env/init')(g)
