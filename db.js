@@ -24,6 +24,6 @@ export function migrateDB(configs) {
     return v.orgid
   })
   return apis.apimodules.reduce((p, apiMod) => {
-    return p.then(() => apiMod.migrateDB(instance, schemas))
+    return p.then(() => apiMod.migrateDB(instance, schemas, configs))
   }, Promise.resolve())
 }
