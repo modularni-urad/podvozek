@@ -18,7 +18,8 @@ export default async function init () {
     express, knex, auth, 
     bodyParser: express.json(), 
     ErrorClass: APIError,
-    require
+    require,
+    sendMail: () => { throw new Exception('mail sending unimplemented') }
   }
   const apiRouter = await apis.init(ctx)
   app.use('/:tenantid', loadOrgConfigMW, corsMW, apiRouter)
