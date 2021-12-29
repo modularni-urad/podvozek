@@ -11,7 +11,7 @@ export function initDB () {
   instance = knex({
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    debug: process.env.NODE_ENV !== 'production',
+    debug: process.env.NODE_ENV === 'debug',
     migrations: {
       disableMigrationsListValidation: true
     }

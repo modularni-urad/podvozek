@@ -2,7 +2,8 @@ import _ from 'underscore'
 import fs from 'fs'
 import path from 'path'
 
-export const APIS_DIR = path.resolve(process.env.APIS_DIR || './.apis')
+export const APIS_DIR = path.resolve(process.env.APIS_DIR || './api_modules')
+
 const apimodules = []
 
 export async function getAppFolders () {

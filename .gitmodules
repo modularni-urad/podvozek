@@ -1,0 +1,36 @@
+[submodule "api_modules/ankety"]
+	path = api_modules/ankety
+	url = https://github.com/modularni-urad/ankety-api
+[submodule "api_modules/paro"]
+	path = api_modules/paro
+	url = https://github.com/modularni-urad/paro-api
+[submodule "api_modules/optionman"]
+	path = api_modules/optionman
+	url = https://github.com/modularni-urad/optionman
+[submodule "api_modules/uni"]
+	path = api_modules/uni
+	url = https://github.com/modularni-urad/uni-api
+[submodule "api_modules/projekty"]
+	path = api_modules/projekty
+	url = https://github.com/modularni-urad/project-stack
+[submodule "api_modules/contactforms"]
+	path = api_modules/contactforms
+	url = https://github.com/modularni-urad/contactforms
+[submodule "api_modules/groupman"]
+	path = api_modules/groupman
+	url = https://github.com/modularni-urad/groupman-api
+[submodule "api_modules/userman"]
+	path = api_modules/userman
+	url = https://github.com/modularni-urad/userman-api
+[submodule "api_modules/mediaman"]
+	path = api_modules/mediaman
+	url = https://github.com/modularni-urad/mediaman
+[submodule "api_modules/notifyer"]
+	path = api_modules/notifyer
+	url = https://github.com/modularni-urad/notifyer
+[submodule "api_modules/taskman"]
+	path = api_modules/taskman
+	url = https://github.com/modularni-urad/taskman
+[submodule "api_modules/bbb"]
+	path = api_modules/bbb
+	url = https://github.com/otevrenamesta/bbb-cms-api
