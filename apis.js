@@ -1,6 +1,7 @@
 import _ from 'underscore'
 import fs from 'fs'
 import path from 'path'
+import { init as InitPaRo, migrateDB } from 'modularni-urad-paro-api/index'
 
 export const APIS_DIR = path.resolve(process.env.APIS_DIR || './api_modules')
 
@@ -26,6 +27,8 @@ export default {
         console.error(err)
       }
     })
+    apimodules.push({ migrateDB })
+    apiRouter.use(`/paro`, InitPaRo(ctx))
     return apiRouter
   },
   apimodules

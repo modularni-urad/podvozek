@@ -37,12 +37,13 @@ describe('app', () => {
     //   suites.map(i => i(g))
     // })
     // const testmodules = await prepare()
+    const tenants = ['mutabor', 'pokus_cz']
+
     _.map(testmodules, (modulelist, apppath) => {
       modulelist.map(mod => {
         const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
         try {
           const subMod = require(modPath)
-          const tenants = ['mutabor', 'pokus_cz']
           tenants.map(tenant => {
             g.baseurl = `${g.url}/${tenant}/${apppath}`
             subMod(g)
@@ -52,6 +53,18 @@ describe('app', () => {
           console.error(err)
         }        
       })      
+    })
+    const paroMods = [
+      'modularni-urad-paro-api/test/suites/call_t', 
+      'modularni-urad-paro-api/test/suites/project_t', 
+      'modularni-urad-paro-api/test/suites/support_t'
+    ]
+    paroMods.map(modPath => {
+      tenants.map(tenant => {
+        g.baseurl = `${g.url}/${tenant}/paro`
+        const subMod = require(modPath)
+        subMod(g)
+      })
     })
   })
 

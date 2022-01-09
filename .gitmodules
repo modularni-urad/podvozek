@@ -1,9 +1,6 @@
 [submodule "api_modules/ankety"]
 	path = api_modules/ankety
 	url = https://github.com/modularni-urad/ankety-api
-[submodule "api_modules/paro"]
-	path = api_modules/paro
-	url = https://github.com/modularni-urad/paro-api
 [submodule "api_modules/optionman"]
 	path = api_modules/optionman
 	url = https://github.com/modularni-urad/optionman

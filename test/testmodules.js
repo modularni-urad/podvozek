@@ -14,6 +14,6 @@ export default {
   mediaman: [ 'files_t' ],
   uni: [ 'posts_t' ],
   // contactforms: [ 'questions_t' ],
-  paro: [ 'call_t', 'project_t', 'support_t' ],
+  // paro: [ 'call_t', 'project_t', 'support_t' ],
   ankety: [ 'survey_t', 'voting_t' ]
 }
