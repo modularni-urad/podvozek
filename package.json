@@ -23,6 +23,7 @@
     "knex": "^0.95.0",
     "knex-paginate": "^3",
     "modularni-urad-paro-api": "git+https://github.com/modularni-urad/paro-api.git",
+    "bbb-cms-api": "git+https://github.com/otevrenamesta/bbb-cms-api.git",
     "modularni-urad-utils": "^1.5",
     "pg": "^8.7.1",
     "underscore": "^1.13.1",

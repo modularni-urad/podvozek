@@ -28,9 +28,6 @@
 [submodule "api_modules/taskman"]
 	path = api_modules/taskman
 	url = https://github.com/modularni-urad/taskman
-[submodule "api_modules/bbb"]
-	path = api_modules/bbb
-	url = https://github.com/otevrenamesta/bbb-cms-api
 [submodule "api_modules/auth"]
 	path = api_modules/auth
 	url = https://github.com/modularni-urad/auth-api

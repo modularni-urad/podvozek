@@ -1,7 +1,8 @@
 import _ from 'underscore'
 import fs from 'fs'
 import path from 'path'
-import { init as InitPaRo, migrateDB } from 'modularni-urad-paro-api/index'
+import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-api/index'
+import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
 
 export const APIS_DIR = path.resolve(process.env.APIS_DIR || './api_modules')
 
@@ -27,8 +28,11 @@ export default {
         console.error(err)
       }
     })
-    apimodules.push({ migrateDB })
+    apimodules.push({ migrateDB: ParoMigrate })
     apiRouter.use(`/paro`, InitPaRo(ctx))
+
+    apimodules.push({ migrateDB: BBBMigrate })
+    apiRouter.use(`/bbb`, InitBBB(ctx))
     return apiRouter
   },
   apimodules
