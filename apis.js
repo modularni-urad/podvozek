@@ -4,6 +4,7 @@ import path from 'path'
 import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-api/index'
 import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
 import initNIA from 'nia-auth'
+import initAuthAPI from 'auth-api'
 
 export const APIS_DIR = path.resolve(process.env.APIS_DIR || './api_modules')
 
@@ -36,6 +37,7 @@ export default {
     apiRouter.use(`/bbb`, InitBBB(ctx))
 
     apiRouter.use(`/nia`, await initNIA(ctx))
+    apiRouter.use(`/auth`, await initAuthAPI(ctx))
     
     return apiRouter
   },
