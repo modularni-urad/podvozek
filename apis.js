@@ -41,7 +41,7 @@ export default {
     apiRouter.use(`/auth`, await initAuthAPI(ctx))
 
     apimodules.push({ migrateDB: MediamanMigrate })
-    apiRouter.use('/me', await InitMediaman(ctx))
+    apiRouter.use('/mediaman', await InitMediaman(ctx))
     
     return apiRouter
   },
