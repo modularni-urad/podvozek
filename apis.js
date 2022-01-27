@@ -3,6 +3,7 @@ import fs from 'fs'
 import path from 'path'
 import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-api/index'
 import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
+import { init as InitMediaman, migrateDB as MediamanMigrate } from 'modularni-urad-mediaman/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -38,6 +39,9 @@ export default {
 
     apiRouter.use(`/nia`, await initNIA(ctx))
     apiRouter.use(`/auth`, await initAuthAPI(ctx))
+
+    apimodules.push({ migrateDB: MediamanMigrate })
+    apiRouter.use('/me', await InitMediaman(ctx))
     
     return apiRouter
   },

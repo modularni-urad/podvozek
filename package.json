@@ -26,6 +26,7 @@
     "bbb-cms-api": "git+https://github.com/otevrenamesta/bbb-cms-api.git",
     "nia-auth": "git+https://github.com/modularni-urad/nia-auth.git",
     "auth-api": "git+https://github.com/modularni-urad/auth-api.git",
+    "modularni-urad-mediaman": "git+https://github.com/modularni-urad/mediaman.git",
     "modularni-urad-utils": "^1.5",
     "pg": "^8.7.1",
     "underscore": "^1.13.1",

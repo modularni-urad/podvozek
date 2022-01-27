@@ -19,9 +19,6 @@
 [submodule "api_modules/userman"]
 	path = api_modules/userman
 	url = https://github.com/modularni-urad/userman-api
-[submodule "api_modules/mediaman"]
-	path = api_modules/mediaman
-	url = https://github.com/modularni-urad/mediaman
 [submodule "api_modules/notifyer"]
 	path = api_modules/notifyer
 	url = https://github.com/modularni-urad/notifyer
