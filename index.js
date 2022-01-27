@@ -22,7 +22,10 @@ export default async function init () {
     sendMail: () => { throw new Exception('mail sending unimplemented') }
   }
   const apiRouter = await apis.init(ctx)
-  app.use('/:tenantid', loadOrgConfigMW, corsMW, apiRouter)
+  app.use('/:tenantid', loadOrgConfigMW, corsMW, (req, res, next) => {
+    res.header('Access-Control-Allow-Credentials', true)
+    next()
+  }, apiRouter)
 
   initErrorHandlers(app) // ERROR HANDLING
 
