@@ -10,9 +10,6 @@
 [submodule "api_modules/projekty"]
 	path = api_modules/projekty
 	url = https://github.com/modularni-urad/project-stack
-[submodule "api_modules/contactforms"]
-	path = api_modules/contactforms
-	url = https://github.com/modularni-urad/contactforms
 [submodule "api_modules/groupman"]
 	path = api_modules/groupman
 	url = https://github.com/modularni-urad/groupman-api
