@@ -7,9 +7,11 @@ import { initDB } from './db'
 import apis from './apis'
 import { initConfigManager, loadOrgConfigMW } from './configman'
 import { corsMW } from './corsman'
+import initSendMail from './mailsend'
 
 export default async function init () {
   const knex = await initDB()
+  const sendMail = await initSendMail()
   attachPaginate()
 
   const app = express()
@@ -19,7 +21,7 @@ export default async function init () {
     bodyParser: express.json(), 
     ErrorClass: APIError,
     require,
-    sendMail: () => { throw new Exception('mail sending unimplemented') }
+    sendMail
   }
   const apiRouter = await apis.init(ctx)
   app.use('/:tenantid', loadOrgConfigMW, corsMW, (req, res, next) => {
