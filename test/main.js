@@ -66,6 +66,19 @@ describe('app', () => {
         subMod(g)
       })
     })
+
+    const enMods = [
+      'modularni-urad-energo-man/test/suites/points', 
+      'modularni-urad-energo-man/test/suites/state'
+    ]
+    enMods.map(modPath => {
+      tenants.map(tenant => {
+        g.baseurl = `${g.url}/${tenant}/energoman`
+        const subMod = require(modPath)
+        subMod(g)
+      })
+    })
+
   })
 
 })

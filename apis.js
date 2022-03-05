@@ -5,6 +5,7 @@ import initContactForms from 'contactform-api'
 import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-api/index'
 import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
 import { init as InitMediaman, migrateDB as MediamanMigrate } from 'modularni-urad-mediaman/index'
+import { init as InitEnergoman, migrateDB as EnergomanMigrate } from 'modularni-urad-energo-man/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -43,6 +44,9 @@ export default {
 
     apimodules.push({ migrateDB: MediamanMigrate })
     apiRouter.use('/mediaman', await InitMediaman(ctx))
+
+    apimodules.push({ migrateDB: EnergomanMigrate })
+    apiRouter.use('/energoman', await InitEnergoman(ctx))    
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     
