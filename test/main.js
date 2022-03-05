@@ -1,6 +1,6 @@
 import chai from 'chai'
 import _ from 'underscore'
-import testmodules from './testmodules'
+import { OBSOLETE, API_TEST_GROUPS } from './testmodules'
 // import { getFolderSuites } from 'modularni-urad-utils/test/utils/suite'
 import { APIS_DIR, getAppFolders } from '../apis'
 const chaiHttp = require('chai-http')
@@ -39,7 +39,7 @@ describe('app', () => {
     // const testmodules = await prepare()
     const tenants = ['mutabor', 'pokus_cz']
 
-    _.map(testmodules, (modulelist, apppath) => {
+    _.map(OBSOLETE, (modulelist, apppath) => {
       modulelist.map(mod => {
         const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
         try {
@@ -54,31 +54,16 @@ describe('app', () => {
         }        
       })      
     })
-    const paroMods = [
-      'modularni-urad-paro-api/test/suites/call_t', 
-      'modularni-urad-paro-api/test/suites/project_t', 
-      'modularni-urad-paro-api/test/suites/support_t'
-    ]
-    paroMods.map(modPath => {
-      tenants.map(tenant => {
-        g.baseurl = `${g.url}/${tenant}/paro`
-        const subMod = require(modPath)
-        subMod(g)
+    
+    _.map(API_TEST_GROUPS, (modulelist, apppath) => {
+      modulelist.map(modPath => {
+        tenants.map(tenant => {
+          g.baseurl = `${g.url}/${tenant}/${apppath}`
+          const subMod = require(modPath)
+          subMod(g)
+        })
       })
     })
-
-    const enMods = [
-      'modularni-urad-energo-man/test/suites/points', 
-      'modularni-urad-energo-man/test/suites/state'
-    ]
-    enMods.map(modPath => {
-      tenants.map(tenant => {
-        g.baseurl = `${g.url}/${tenant}/energoman`
-        const subMod = require(modPath)
-        subMod(g)
-      })
-    })
-
   })
 
 })
