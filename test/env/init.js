@@ -6,6 +6,7 @@ process.env.SESSION_SERVICE_PORT = 24000
 process.env.SESSION_SERVICE = `http://localhost:${process.env.SESSION_SERVICE_PORT}`
 process.env.CONFIG_FOLDER = path.join(__dirname, '../configs')
 process.env.WEBDATA_FOLDER = '/tmp'
+process.env.SMTP_CONN = 'smtp://localhost'
 
 module.exports = function (g) {
   const port = process.env.PORT || 3333
