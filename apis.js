@@ -8,6 +8,7 @@ import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
 import { init as InitMediaman, migrateDB as MediamanMigrate } from 'modularni-urad-mediaman/index'
 import { init as InitEnergoman, migrateDB as EnergomanMigrate } from 'modularni-urad-energo-man/index'
 import { init as InitUni, migrateDB as UniMigrate } from 'uni-api/index'
+import { init as InitOptionman, migrateDB as OptionmanMigrate } from 'modularni-urad-optionman/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -55,6 +56,9 @@ export default {
     
     apimodules.push({ migrateDB: UniMigrate })
     apiRouter.use('/uni', await InitUni(ctx)) 
+
+    apimodules.push({ migrateDB: OptionmanMigrate })
+    apiRouter.use('/optionman', await InitOptionman(ctx)) 
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     

@@ -14,7 +14,11 @@ export const API_TEST_GROUPS = {
     'modularni-urad-ankety-api/test/suites/survey_t', 
     'modularni-urad-ankety-api/test/suites/voting_t' 
   ],
-  uni: [ 'uni-api/test/suites/posts_t' ]
+  uni: [ 'uni-api/test/suites/posts_t' ],
+  optionman: [ 
+    'modularni-urad-optionman/test/suites/groups_t', 
+    'modularni-urad-optionman/test/suites/options_t' 
+  ]
 }
 
 export const OBSOLETE = {
@@ -28,6 +32,5 @@ export const OBSOLETE = {
   ],
   userman: [ 'users' ],
   groupman: [ 'groups', 'mships' ],
-  notifyer: [ 'messages_t' ],
-  optionman: [ 'groups_t', 'options_t' ]
+  notifyer: [ 'messages_t' ]
 }
