@@ -1,9 +1,6 @@
 [submodule "api_modules/optionman"]
 	path = api_modules/optionman
 	url = https://github.com/modularni-urad/optionman
-[submodule "api_modules/uni"]
-	path = api_modules/uni
-	url = https://github.com/modularni-urad/uni-api
 [submodule "api_modules/projekty"]
 	path = api_modules/projekty
 	url = https://github.com/modularni-urad/project-stack

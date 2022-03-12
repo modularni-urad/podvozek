@@ -7,6 +7,7 @@ import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-
 import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
 import { init as InitMediaman, migrateDB as MediamanMigrate } from 'modularni-urad-mediaman/index'
 import { init as InitEnergoman, migrateDB as EnergomanMigrate } from 'modularni-urad-energo-man/index'
+import { init as InitUni, migrateDB as UniMigrate } from 'uni-api/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -50,7 +51,10 @@ export default {
     apiRouter.use('/energoman', await InitEnergoman(ctx))
 
     apimodules.push({ migrateDB: AnketyMigrate })
-    apiRouter.use('/ankety', await InitAnkety(ctx))   
+    apiRouter.use('/ankety', await InitAnkety(ctx)) 
+    
+    apimodules.push({ migrateDB: UniMigrate })
+    apiRouter.use('/uni', await InitUni(ctx)) 
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     
