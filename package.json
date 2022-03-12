@@ -7,7 +7,7 @@
     "start": "node -r esm server.js",
     "startdbg": "node -r esm --inspect server.js",
     "test": "mocha -r esm --exit './test/main.js' --timeout 50000",
-    "testdbg": "mocha -r esm --inspect './test/main.js' --timeout 5000"
+    "testdbg": "mocha -r esm --inspect --exit './test/main.js' --timeout 5000"
   },
   "author": "Vaclav Klecanda <vencax77@gmail.com> (http://vxk.cz)",
   "license": "MIT",
@@ -27,7 +27,7 @@
     "modularni-urad-energo-man": "git+https://github.com/modularni-urad/energo-management.git",
     "modularni-urad-mediaman": "git+https://github.com/modularni-urad/mediaman.git",
     "modularni-urad-paro-api": "git+https://github.com/modularni-urad/paro-api.git",
-    "modularni-urad-utils": "^1.5",
+    "modularni-urad-utils": "git+https://github.com/modularni-urad/utils.git",
     "nia-auth": "git+https://github.com/modularni-urad/nia-auth.git",
     "nodemailer": "^6.7.2",
     "pg": "^8.7.1",

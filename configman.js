@@ -1,33 +1,23 @@
 import { APIError } from 'modularni-urad-utils'
-import GetConfigWatcher from 'modularni-urad-utils/configloader'
+import InitConfigLoader from 'modularni-urad-utils/config/loader'
 import { migrateDB } from './db'
-import { setup as CORSSetup } from './corsman'
 
-const TENANT_CONFIGS = {}
+export const TENANT_CONFIGS = {}
 
-function _update (configs) {
-  Object.keys(TENANT_CONFIGS).map(i => delete TENANT_CONFIGS[i])
-  Object.assign(TENANT_CONFIGS, configs)
+function _update (orgid, config) {
+  if (orgid in TENANT_CONFIGS) {
+    delete TENANT_CONFIGS[orgid]
+  } else {
+    migrateDB([config])
+  }
+  TENANT_CONFIGS[orgid] = config
 }
 
 export async function initConfigManager (configFolder) {
-  const confWatcher = GetConfigWatcher(configFolder)
-
-  return new Promise((resolve, reject) => {
-    confWatcher.on('loaded', configs => {
-      _update(configs)
-      console.log(`configs: ${Object.keys(configs).sort().join(',')}`)
-      CORSSetup(configs)
-      return migrateDB(configs).then(resolve).catch(reject)
-    })
-
-    confWatcher.on('changed', (orgid, configs) => {
-      _update(configs)
-      console.log(`configs: ${Object.keys(configs).sort().join(',')}`)
-      CORSSetup(configs)
-      migrateDB(configs)
-    })
-  })
+  const configs = await InitConfigLoader(configFolder, _update)
+  configs.map(i => TENANT_CONFIGS[i.orgid] = i)
+  console.log(`loaded configs: ${Object.keys(TENANT_CONFIGS).sort().join(',')}`)
+  return migrateDB(TENANT_CONFIGS)
 }
 
 function getOrgConfig (req) {
