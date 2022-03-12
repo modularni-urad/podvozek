@@ -12,6 +12,7 @@
   "author": "Vaclav Klecanda <vencax77@gmail.com> (http://vxk.cz)",
   "license": "MIT",
   "dependencies": {
+    "modularni-urad-ankety-api": "git+https://github.com/modularni-urad/ankety-api.git",
     "auth-api": "git+https://github.com/modularni-urad/auth-api.git",
     "axios": "^0.24.0",
     "bbb-cms-api": "git+https://github.com/otevrenamesta/bbb-cms-api.git",
