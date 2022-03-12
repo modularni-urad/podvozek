@@ -18,6 +18,9 @@ export const API_TEST_GROUPS = {
   optionman: [ 
     'modularni-urad-optionman/test/suites/groups_t', 
     'modularni-urad-optionman/test/suites/options_t' 
+  ],
+  projekty: [
+    'project-stack-api/test/suites/projects'
   ]
 }
 
@@ -26,9 +29,6 @@ export const OBSOLETE = {
     '1_tasks',
     '2_comments',
     '3_solvers'
-  ],
-  projekty: [
-    'projects'
   ],
   userman: [ 'users' ],
   groupman: [ 'groups', 'mships' ],

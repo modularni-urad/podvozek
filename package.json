@@ -25,6 +25,7 @@
     "express": "^4.16.2",
     "knex": "^0.95.0",
     "knex-paginate": "^3",
+    "project-stack-api": "git+https://github.com/modularni-urad/project-stack.git",
     "modularni-urad-optionman": "git+https://github.com/modularni-urad/optionman.git",
     "modularni-urad-energo-man": "git+https://github.com/modularni-urad/energo-management.git",
     "modularni-urad-mediaman": "git+https://github.com/modularni-urad/mediaman.git",
