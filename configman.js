@@ -1,6 +1,7 @@
 import { APIError } from 'modularni-urad-utils'
 import InitConfigLoader from 'modularni-urad-utils/config/loader'
 import { migrateDB } from './db'
+import logger from './logger'
 
 export const TENANT_CONFIGS = {}
 
@@ -16,7 +17,7 @@ function _update (orgid, config) {
 export async function initConfigManager (configFolder) {
   const configs = await InitConfigLoader(configFolder, _update)
   configs.map(i => TENANT_CONFIGS[i.orgid] = i)
-  console.log(`loaded configs: ${Object.keys(TENANT_CONFIGS).sort().join(',')}`)
+  logger.info(`loaded configs: ${Object.keys(TENANT_CONFIGS).sort().join(',')}`)
   return migrateDB(TENANT_CONFIGS)
 }
 

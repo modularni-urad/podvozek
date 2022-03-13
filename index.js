@@ -8,6 +8,7 @@ import apis from './apis'
 import { initConfigManager, loadOrgConfigMW } from './configman'
 import { corsMW } from './corsman'
 import initSendMail from './mailsend'
+import logger from './logger'
 
 export default async function init () {
   const knex = await initDB()
@@ -21,7 +22,8 @@ export default async function init () {
     bodyParser: express.json(), 
     ErrorClass: APIError,
     require,
-    sendMail
+    sendMail,
+    logger
   }
   const apiRouter = await apis.init(ctx)
   app.use('/:tenantid', loadOrgConfigMW, corsMW, (req, res, next) => {

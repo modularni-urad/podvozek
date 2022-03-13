@@ -1,4 +1,5 @@
 import nodemailer from 'nodemailer'
+import logger from './logger'
 
 export default async function initSendmail () {
 
@@ -7,7 +8,7 @@ export default async function initSendmail () {
   try {
     await transporter.verify()
   } catch (err) {
-    console.log(`verifying STMP (${process.env.SMTP_CONN}) FAILED :(`)
+    logger.error(`verifying STMP (${process.env.SMTP_CONN}) FAILED :(`)
   }
 
   return async function sendMail (message) {    
