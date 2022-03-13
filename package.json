@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "entity-api-base": "^0.2.0",
+    "modularni-urad-notifyer": "git+https://github.com/modularni-urad/notifyer.git",
     "esm": "^3.2.25",
     "express": "^4.16.2",
     "knex": "^0.95.0",

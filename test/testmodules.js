@@ -21,6 +21,9 @@ export const API_TEST_GROUPS = {
   ],
   projekty: [
     'project-stack-api/test/suites/projects'
+  ],
+  notifyer: [ 
+    'modularni-urad-notifyer/test/suites/messages_t' 
   ]
 }
 
@@ -31,6 +34,5 @@ export const OBSOLETE = {
     '3_solvers'
   ],
   userman: [ 'users' ],
-  groupman: [ 'groups', 'mships' ],
-  notifyer: [ 'messages_t' ]
+  groupman: [ 'groups', 'mships' ]
 }

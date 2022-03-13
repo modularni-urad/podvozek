@@ -10,6 +10,7 @@ import { init as InitEnergoman, migrateDB as EnergomanMigrate } from 'modularni-
 import { init as InitUni, migrateDB as UniMigrate } from 'uni-api/index'
 import { init as InitOptionman, migrateDB as OptionmanMigrate } from 'modularni-urad-optionman/index'
 import { init as InitProjekty, migrateDB as ProjektyMigrate } from 'project-stack-api/index'
+import { init as InitNotifyer, migrateDB as NotifyerMigrate } from 'modularni-urad-notifyer/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -64,7 +65,8 @@ export default {
     apimodules.push({ migrateDB: ProjektyMigrate })
     apiRouter.use('/projekty', await InitProjekty(ctx)) 
 
-    
+    apimodules.push({ migrateDB: NotifyerMigrate })
+    apiRouter.use('/notifyer', await InitNotifyer(ctx)) 
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     
