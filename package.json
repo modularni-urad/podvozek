@@ -38,6 +38,7 @@
     "pg": "^8.7.1",
     "underscore": "^1.13.1",
     "uni-api": "git+https://github.com/modularni-urad/uni-api.git",
+    "userman-api": "git+https://github.com/modularni-urad/userman-api.git",
     "yaml": "^1.10.2"
   },
   "devDependencies": {

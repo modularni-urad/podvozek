@@ -12,6 +12,7 @@ import { init as InitOptionman, migrateDB as OptionmanMigrate } from 'modularni-
 import { init as InitProjekty, migrateDB as ProjektyMigrate } from 'project-stack-api/index'
 import { init as InitNotifyer, migrateDB as NotifyerMigrate } from 'modularni-urad-notifyer/index'
 import { init as InitGroupman, migrateDB as GroupmanMigrate } from 'groupman-api/index'
+import { init as InitUser, migrateDB as UserMigrate } from 'userman-api/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 
@@ -71,6 +72,9 @@ export default {
 
     apimodules.push({ migrateDB: GroupmanMigrate })
     apiRouter.use('/groupman', await InitGroupman(ctx)) 
+
+    apimodules.push({ migrateDB: UserMigrate })
+    apiRouter.use('/userman', await InitUser(ctx)) 
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     

@@ -28,7 +28,9 @@ export const API_TEST_GROUPS = {
   groupman: [ 
     'groupman-api/test/suites/groups', 
     'groupman-api/test/suites/mships' 
-  ]
+  ],
+  userman: [ 'userman-api/test/suites/users' ]
+  
 }
 
 export const OBSOLETE = {
@@ -37,5 +39,4 @@ export const OBSOLETE = {
     '2_comments',
     '3_solvers'
   ],
-  userman: [ 'users' ]
 }
