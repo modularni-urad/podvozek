@@ -29,14 +29,10 @@ export const API_TEST_GROUPS = {
     'groupman-api/test/suites/groups', 
     'groupman-api/test/suites/mships' 
   ],
-  userman: [ 'userman-api/test/suites/users' ]
-  
-}
-
-export const OBSOLETE = {
+  userman: [ 'userman-api/test/suites/users' ],
   taskman: [
-    '1_tasks',
-    '2_comments',
-    '3_solvers'
-  ],
+    'modularni-urad-taskman/test/suites/1_tasks',
+    'modularni-urad-taskman/test/suites/2_comments',
+    'modularni-urad-taskman/test/suites/3_solvers'
+  ]
 }

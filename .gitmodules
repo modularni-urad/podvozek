@@ -1,3 +1,0 @@
-[submodule "api_modules/taskman"]
-	path = api_modules/taskman
-	url = https://github.com/modularni-urad/taskman
