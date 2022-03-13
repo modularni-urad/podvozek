@@ -21,6 +21,7 @@
     "cors": "^2.8.5",
     "debug": "^4.3.2",
     "entity-api-base": "^0.2.0",
+    "groupman-api": "git+https://github.com/modularni-urad/groupman-api.git",
     "modularni-urad-notifyer": "git+https://github.com/modularni-urad/notifyer.git",
     "esm": "^3.2.25",
     "express": "^4.16.2",

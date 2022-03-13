@@ -24,6 +24,10 @@ export const API_TEST_GROUPS = {
   ],
   notifyer: [ 
     'modularni-urad-notifyer/test/suites/messages_t' 
+  ],
+  groupman: [ 
+    'groupman-api/test/suites/groups', 
+    'groupman-api/test/suites/mships' 
   ]
 }
 
@@ -33,6 +37,5 @@ export const OBSOLETE = {
     '2_comments',
     '3_solvers'
   ],
-  userman: [ 'users' ],
-  groupman: [ 'groups', 'mships' ]
+  userman: [ 'users' ]
 }

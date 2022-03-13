@@ -1,6 +1,3 @@
-[submodule "api_modules/groupman"]
-	path = api_modules/groupman
-	url = https://github.com/modularni-urad/groupman-api
 [submodule "api_modules/userman"]
 	path = api_modules/userman
 	url = https://github.com/modularni-urad/userman-api
