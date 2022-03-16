@@ -34,5 +34,6 @@ export const API_TEST_GROUPS = {
     'modularni-urad-taskman/test/suites/1_tasks',
     'modularni-urad-taskman/test/suites/2_comments',
     'modularni-urad-taskman/test/suites/3_solvers'
-  ]
+  ],
+  admin: [ './suites/admin' ]
 }

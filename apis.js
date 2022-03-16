@@ -16,12 +16,15 @@ import { init as InitUser, migrateDB as UserMigrate } from 'userman-api/index'
 import { init as InitTaskman, migrateDB as TaskmanMigrate } from 'modularni-urad-taskman/index'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
+import initAdmin from './admin'
 
 const apimodules = []
 
 export default {
   init: async function (ctx) {
     const apiRouter = ctx.express()
+
+    apiRouter.use(`/admin`, initAdmin(ctx))
 
     apimodules.push({ migrateDB: ParoMigrate })
     apiRouter.use(`/paro`, InitPaRo(ctx))

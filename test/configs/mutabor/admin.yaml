@@ -1,0 +1,27 @@
+admin:
+  consts:
+    ORGAPI: https://modurad.otevrenamesta.cz/mutabor
+    MODULES_URL: https://modurad.otevrenamesta.cz/adminmodules
+
+  cdn: https://modurad.otevrenamesta.cz/media/mutabor/
+  cdnapi: https://modurad.otevrenamesta.cz/cdn
+
+  user_search_url: ${ORGAPI}/userman/search?query=
+  user_info_url: ${ORGAPI}/userman/info
+  notifyer_api: ${ORGAPI}/notifyer/
+  login:
+    endpoints: 
+      - text: sql_users
+        value: ${ORGAPI}/auth/login/sql
+    logout: ${ORGAPI}/auth/logout
+
+  apps:
+    - module: ${MODULES_URL}/bbb-web-editor/index.js
+      path: /webeditor/
+      webdata_url: https://modurad.otevrenamesta.cz/webdata
+      apiUrl: ${ORGAPI}/bbb/
+      websites:
+        - domain: taborskasetkani.eu
+          webmastersGroup: ts_webmasters
+        - domain: info.mutabor.cz
+          webmastersGroup: info_webmasters
