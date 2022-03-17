@@ -1,7 +1,7 @@
 import { APIError } from 'modularni-urad-utils'
 import InitConfigLoader from 'modularni-urad-utils/config/loader'
+import logger from 'modularni-urad-utils/logger'
 import { migrateDB } from './db'
-import logger from './logger'
 
 export const TENANT_CONFIGS = {}
 
