@@ -1,8 +1,7 @@
 import chai from 'chai'
 import _ from 'underscore'
-import testmodules from './testmodules'
+import { API_TEST_GROUPS } from './testmodules'
 // import { getFolderSuites } from 'modularni-urad-utils/test/utils/suite'
-import { APIS_DIR, getAppFolders } from '../apis'
 const chaiHttp = require('chai-http')
 const path = require('path')
 chai.use(chaiHttp)
@@ -37,21 +36,16 @@ describe('app', () => {
     //   suites.map(i => i(g))
     // })
     // const testmodules = await prepare()
-    _.map(testmodules, (modulelist, apppath) => {
-      modulelist.map(mod => {
-        const modPath = path.join(APIS_DIR, apppath, 'test/suites', mod)
-        try {
+    const tenants = ['mutabor', 'pokus_cz']
+    
+    _.map(API_TEST_GROUPS, (modulelist, apppath) => {
+      modulelist.map(modPath => {
+        tenants.map(tenant => {
+          g.baseurl = `${g.url}/${tenant}/${apppath}`
           const subMod = require(modPath)
-          const tenants = ['mutabor', 'pokus_cz']
-          tenants.map(tenant => {
-            g.baseurl = `${g.url}/${tenant}/${apppath}`
-            subMod(g)
-          })
-        } catch (err) {
-          console.error(`!!!!! require(${modPath}) failed!!!!!!`)
-          console.error(err)
-        }        
-      })      
+          subMod(g)
+        })
+      })
     })
   })
 

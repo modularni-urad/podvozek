@@ -1,16 +1,11 @@
 import cors from 'cors'
-
-export function setup (configs) {
-  CONFIGS = configs
-}
-
-let CONFIGS = []
+import { TENANT_CONFIGS } from './configman'
 
 // taken from https://github.com/expressjs/cors#configuring-cors-asynchronously
 function configCallback (req, callback) {
-  const CONF = CONFIGS[req.params.tenantid]
+  const CONF = TENANT_CONFIGS[req.params.tenantid]
   const allowed = CONF && 
-    CONF.cors !== undefined && 
+    CONF.cors !== undefined &&
     CONF.cors.indexOf(req.headers['origin']) >= 0
   // callback expects two parameters: error and options
   callback(null, { origin: allowed })
