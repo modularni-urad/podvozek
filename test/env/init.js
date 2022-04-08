@@ -1,5 +1,5 @@
 import path from 'path'
-import cleanupDB from './dbcleanup'
+const port = process.env.PORT || 3333
 const SessionServiceMock = require('modularni-urad-utils/test/mocks/sessionService')
 process.env.NODE_ENV = 'test'
 process.env.SESSION_SERVICE_PORT = 24000
@@ -7,14 +7,17 @@ process.env.SESSION_SERVICE = `http://localhost:${process.env.SESSION_SERVICE_PO
 process.env.CONFIG_FOLDER = path.join(__dirname, '../configs')
 process.env.WEBDATA_FOLDER = '/tmp'
 process.env.SMTP_CONN = 'smtp://localhost'
+process.env.FILESTORAGE_ACCESS_TOKEN_URL=`http://localhost:${port}/{{TENANTID}}/mediaman`
+process.env.TRUSTED_IPS='127.0.0.1'
+process.env.FILESTORAGE_URL='https://files.vxk.cz'
 
-module.exports = function (g) {
-  const port = process.env.PORT || 3333
+module.exports = function (g) {  
   Object.assign(g, {
     port,
     url: `http://localhost:${port}`,
     mockUser: { id: 42 },
-    sessionBasket: []
+    sessionBasket: [],
+    sentmails: []
   })
   g.sessionSrvcMock = SessionServiceMock.default(process.env.SESSION_SERVICE_PORT, g)
   g.require = function(name) {
@@ -37,6 +40,7 @@ module.exports = function (g) {
   }
 
   g.close = async function() {
+    const cleanupDB = require('./dbcleanup').default
     await cleanupDB()
     g.server.close()
     g.sessionSrvcMock.close()

@@ -42,8 +42,12 @@ describe('app', () => {
       modulelist.map(modPath => {
         tenants.map(tenant => {
           g.baseurl = `${g.url}/${tenant}/${apppath}`
-          const subMod = require(modPath)
-          subMod(g)
+          try {
+            const subMod = require(modPath)
+            subMod(g)
+          } catch (err) {
+            console.log('ERROR:', tenant, modPath)
+          }          
         })
       })
     })

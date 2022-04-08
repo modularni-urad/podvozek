@@ -8,8 +8,7 @@ export const API_TEST_GROUPS = {
     'modularni-urad-energo-man/test/suites/points', 
     'modularni-urad-energo-man/test/suites/state'
   ],
-  contactforms: [ 'contactform-api/test/suites/questions_t' ],
-  mediaman: [ 'modularni-urad-mediaman/test/suites/files_t' ],
+  // mediaman: [ 'modularni-urad-mediaman/test/suites/files_t' ],
   ankety: [
     'modularni-urad-ankety-api/test/suites/survey_t', 
     'modularni-urad-ankety-api/test/suites/voting_t' 
@@ -35,5 +34,6 @@ export const API_TEST_GROUPS = {
     'modularni-urad-taskman/test/suites/2_comments',
     'modularni-urad-taskman/test/suites/3_solvers'
   ],
-  admin: [ './suites/admin' ]
+  admin: [ './suites/admin' ],
+  // contactforms: [ 'contactform-api/test/suites/questions_t' ],
 }
