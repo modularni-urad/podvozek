@@ -1,10 +1,8 @@
 import _ from 'underscore'
-import fs from 'fs'
-import path from 'path'
 import initContactForms from 'contactform-api'
 import { init as InitAnkety, migrateDB as AnketyMigrate } from 'modularni-urad-ankety-api/index'
 import { init as InitPaRo, migrateDB as ParoMigrate } from 'modularni-urad-paro-api/index'
-import { init as InitBBB, migrateDB as BBBMigrate } from 'bbb-cms-api/index'
+import { init as InitBBB } from 'bbb-cms-api/index'
 import { init as InitMediaman, migrateDB as MediamanMigrate } from 'modularni-urad-mediaman/index'
 import { init as InitEnergoman, migrateDB as EnergomanMigrate } from 'modularni-urad-energo-man/index'
 import { init as InitUni, migrateDB as UniMigrate } from 'uni-api/index'
@@ -29,7 +27,6 @@ export default {
     apimodules.push({ migrateDB: ParoMigrate })
     apiRouter.use(`/paro`, InitPaRo(ctx))
 
-    apimodules.push({ migrateDB: BBBMigrate })
     apiRouter.use(`/bbb`, InitBBB(ctx))
 
     apiRouter.use(`/nia`, await initNIA(ctx))
