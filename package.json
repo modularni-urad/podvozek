@@ -28,6 +28,7 @@
     "groupman-api": "git+https://github.com/modularni-urad/groupman-api.git",
     "knex": "^0.95.15",
     "knex-paginate": "^3",
+    "@modularni-urad/posts": "git+https://github.com/modularni-urad/posts.git",
     "modularni-urad-ankety-api": "git+https://github.com/modularni-urad/ankety-api.git",
     "modularni-urad-auth-api": "git+https://github.com/modularni-urad/auth-api.git",
     "modularni-urad-energo-man": "git+https://github.com/modularni-urad/energo-management.git",

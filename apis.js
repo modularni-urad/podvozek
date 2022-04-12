@@ -12,6 +12,7 @@ import { init as InitNotifyer, migrateDB as NotifyerMigrate } from 'modularni-ur
 import { init as InitGroupman, migrateDB as GroupmanMigrate } from 'groupman-api/index'
 import { init as InitUser, migrateDB as UserMigrate } from 'userman-api/index'
 import { init as InitTaskman, migrateDB as TaskmanMigrate } from 'modularni-urad-taskman/index'
+import MUPosts from '@modularni-urad/posts'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 import initAdmin from './admin'
@@ -61,6 +62,9 @@ export default {
 
     apimodules.push({ migrateDB: TaskmanMigrate })
     apiRouter.use('/taskman', await InitTaskman(ctx)) 
+
+    apimodules.push({ migrateDB: MUPosts.migrate })
+    apiRouter.use('/posts', await MUPosts.init(ctx))
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     
