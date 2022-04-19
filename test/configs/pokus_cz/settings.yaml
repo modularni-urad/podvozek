@@ -1,7 +1,7 @@
 domains:
   - api.domain2.cz
 
-cors: https://web1.domain2.cz,http://web2.domain2.cz
+#cors: https://web1.domain2.cz,http://web2.domain2.cz
 
 collections:
   posts:

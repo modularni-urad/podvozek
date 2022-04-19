@@ -26,10 +26,7 @@ export default async function init () {
     logger
   }
   const apiRouter = await apis.init(ctx)
-  app.use('/:tenantid', loadOrgConfigMW, corsMW, (req, res, next) => {
-    res.header('Access-Control-Allow-Credentials', true)
-    next()
-  }, apiRouter)
+  app.use('/:tenantid', loadOrgConfigMW, corsMW, apiRouter)
 
   initErrorHandlers(app) // ERROR HANDLING
 
