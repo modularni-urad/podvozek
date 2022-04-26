@@ -13,6 +13,7 @@ import { init as InitGroupman, migrateDB as GroupmanMigrate } from 'groupman-api
 import { init as InitUser, migrateDB as UserMigrate } from 'userman-api/index'
 import { init as InitTaskman, migrateDB as TaskmanMigrate } from 'modularni-urad-taskman/index'
 import MUPosts from '@modularni-urad/posts'
+import GISServer from 'open-js-geo-server'
 import initNIA from 'nia-auth'
 import initAuthAPI from 'auth-api'
 import initAdmin from './admin'
@@ -65,6 +66,9 @@ export default {
 
     apimodules.push({ migrateDB: MUPosts.migrate })
     apiRouter.use('/posts', await MUPosts.init(ctx))
+
+    apimodules.push({ migrateDB: GISServer.migrate })
+    apiRouter.use('/gis', await GISServer.init(ctx))
 
     apiRouter.use('/contactforms', initContactForms(ctx))
     
