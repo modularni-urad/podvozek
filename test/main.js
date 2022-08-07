@@ -1,14 +1,15 @@
 import chai from 'chai'
+import chaiHttp from 'chai-http'
 import _ from 'underscore'
-import { API_TEST_GROUPS } from './testmodules'
+import { API_TEST_GROUPS } from './testmodules.js'
+import MainIntiFn from './env/init.js'
+import InitFN from '../index.js'
 // import { getFolderSuites } from 'modularni-urad-utils/test/utils/suite'
-const chaiHttp = require('chai-http')
-const path = require('path')
 chai.use(chaiHttp)
 chai.should()
 
 const g = { chai }
-require('./env/init')(g)
+MainIntiFn(g)
 
 // async function prepare () {
 //   // nedari se mi seznam suits generovat asynchrone :/ mocha to nezere
@@ -25,8 +26,7 @@ require('./env/init')(g)
 describe('app', () => {
   
   before(() => {
-    const InitModule = require('../index')
-    return g.InitApp(InitModule.default)
+    return g.InitApp(InitFN)
   })
   after(g.close)
 
@@ -43,11 +43,11 @@ describe('app', () => {
         tenants.map(tenant => {
           g.baseurl = `${g.url}/${tenant}/${apppath}`
           try {
-            const subMod = require(modPath)
+            const subMod = await import(modPath)
             subMod(g)
           } catch (err) {
             console.log('ERROR:', tenant, modPath)
-          }          
+          }
         })
       })
     })

@@ -2,7 +2,8 @@ export const API_TEST_GROUPS = {
   paro: [
     'modularni-urad-paro-api/test/suites/call_t', 
     'modularni-urad-paro-api/test/suites/project_t', 
-    'modularni-urad-paro-api/test/suites/support_t'
+    'modularni-urad-paro-api/test/suites/support_t',
+    'modularni-urad-paro-api/test/suites/call_transition_t'
   ],
   energoman: [
     'modularni-urad-energo-man/test/suites/points', 

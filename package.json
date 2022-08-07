@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "podvozek pro api applikace soustredene do jedne node instance",
   "main": "server.js",
+  "type": "module",
   "esm": {
     "cache": false
   },
   "scripts": {
-    "start": "node -r esm server.js",
-    "startdbg": "node -r esm --inspect server.js",
-    "test": "mocha -r esm --exit './test/main.js' --timeout 50000",
-    "testdbg": "mocha -r esm --inspect --exit './test/main.js' --timeout 5000"
+    "start": "node server.js",
+    "startdbg": "node --inspect server.js",
+    "test": "mocha --exit './test/main.js' --timeout 50000",
+    "testdbg": "mocha --inspect --exit './test/main.js' --timeout 5000"
   },
   "author": "Vaclav Klecanda <vencax77@gmail.com> (http://vxk.cz)",
   "license": "MIT",
@@ -40,7 +41,7 @@
     "modularni-urad-utils": "git+https://github.com/modularni-urad/utils.git",
     "nia-auth": "git+https://github.com/modularni-urad/nia-auth.git#pok",
     "nodemailer": "^6.7.3",
-    "open-js-geo-server": "git+https://github.com/modularni-urad/open-js-geo-server.git",
+    "open-js-geo-server": "git+https://github.com/modularni-urad/open-js-geo-server.git#universal_geom_col",
     "pg": "^8.7.3",
     "project-stack-api": "git+https://github.com/modularni-urad/project-stack.git",
     "underscore": "^1.13.3",
@@ -54,10 +55,9 @@
     "chai-http": "^4.2.0",
     "deepcopy": "^2.0.0",
     "expect": "^1.20.2",
-    "jsdom": "^9.8.0",
-    "mocha": "^8.4.0",
+    "jsdom": "^20.0.0",
+    "mocha": "^10.0.0",
     "moment": "^2.29.3",
-    "sqlite3": "^4.0.4",
     "temp": "^0.9.4"
   },
   "engines": {
