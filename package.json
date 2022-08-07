@@ -18,7 +18,7 @@
     "@modularni-urad/posts": "git+https://github.com/modularni-urad/posts.git",
     "auth-api": "git+https://github.com/modularni-urad/auth-api.git",
     "axios": "^0.24.0",
-    "bbb-cms-api": "git+https://github.com/otevrenamesta/bbb-cms-api.git",
+    "@modularni-urad/bbb-cms-api": "git+https://github.com/otevrenamesta/bbb-cms-api.git",
     "chokidar": "^3.5.3",
     "contactform-api": "git+https://github.com/modularni-urad/contactforms-api.git",
     "cors": "^2.8.5",
@@ -38,9 +38,9 @@
     "modularni-urad-paro-api": "git+https://github.com/modularni-urad/paro-api.git",
     "modularni-urad-taskman": "git+https://github.com/modularni-urad/taskman.git",
     "modularni-urad-utils": "git+https://github.com/modularni-urad/utils.git",
-    "nia-auth": "git+https://github.com/modularni-urad/nia-auth.git#pok",
+    "nia-auth": "git+https://github.com/modularni-urad/nia-auth.git",
     "nodemailer": "^6.7.3",
-    "open-js-geo-server": "git+https://github.com/modularni-urad/open-js-geo-server.git",
+    "open-js-geo-server": "git+https://github.com/modularni-urad/open-js-geo-server.git#universal_geom_col",
     "pg": "^8.7.3",
     "project-stack-api": "git+https://github.com/modularni-urad/project-stack.git",
     "underscore": "^1.13.3",
@@ -57,7 +57,6 @@
     "jsdom": "^9.8.0",
     "mocha": "^8.4.0",
     "moment": "^2.29.3",
-    "sqlite3": "^4.0.4",
     "temp": "^0.9.4"
   },
   "engines": {

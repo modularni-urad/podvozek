@@ -4,7 +4,7 @@ domains:
 #cors: http://web1.domain1.cz,https://web2.domain1.cz
 
 collections:
-  posts:
+  smallposts:
     attrs:
       - name: title
         component: dyn-input
